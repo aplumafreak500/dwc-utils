@@ -59,7 +59,7 @@ function CalcDS_FC($profile_id, $game_id) {
 	global $CRC_8_;
 	$crc8 = new Crc8();
     $csum = $crc8->ComputeCrc($CRC_8_,sbin2ar(pack("V",gmp_intval($profile_id)).strrev($game_id),true));
-    $return=gmp_or($profile_id, gmp_shiftl($csum->Crc , 32));
+    $return=gmp_or($profile_id, gmp_shiftl(($csum->Crc & 0xfe), 31));
 	$fc=gmp_strval($return,10);
 	return $fc;
 }
