@@ -2,6 +2,8 @@
 
 A set of PHP utilities to easily calculate Nintendo Wi-Fi Connection/Wiimmfi/AltWFC friend codes and profile IDs, for regional conversion, testing purposes, or simply to play around with.
 
+**Note:** Requires the gmp module, to allow for 32-bit OS support.
+
 ## GET Parameters
 
 ### ms.php
