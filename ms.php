@@ -17,3 +17,4 @@ function CalcMS($game) {
 	
 }
 echo $game.".ms".CalcMS($game).".gs.nintendowifi.net";
+?>
