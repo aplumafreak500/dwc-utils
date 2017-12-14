@@ -9,21 +9,22 @@ A set of PHP utilities to easily calculate Nintendo Wi-Fi Connection/Wiimmfi/Alt
 ### ms.php
 Calculates the ms%d domain for the input.
 
-* game - Internal game name
+* game - Internal game name, defaults to "mariokartwii".
+* domain - Domain name used in the output, defaults to "nintendowifi.net".
 
 ### fc.php
 Calculates a friend code from a PID.
 
-* pid - DWC Profile ID
-* m - Hash method. Keywords "wii" and "ds" will calculate based on MD5 and CRC8 respectively. CalcEtc_FC() relies on hash(), so only hash algorithims supported by your system can be used. Many thanks to Anton Isakov for CRC8 code.
-* gid - ID4 of the game
-* rev - Reverses the output (for some DS games)
+* pid - DWC Profile ID, defaults to 1.
+* m - Hash method. Keywords "wii" and "ds" will calculate based on MD5 and CRC8 respectively. CalcEtc_FC() relies on hash(), so only hash algorithims supported by your system can be used. Many thanks to Anton Isakov for CRC8 code. Defaults to "wii".
+* gid - ID4 of the game. Defaults to "RMCJ" (or AMCJ if generating a DS friend code).
+* rev - Reverses the output (for some DS games). Defaults to 0.
 
 ### pid.php
 Calculates a PID from an FC.
 
-* fc - DWC friend code, without dashes
-* rev - Reverses the input before calculating the PID
+* fc - DWC friend code, without dashes. Leading zeros are optional. Defaults to 021474836481.
+* rev - Reverses the input before calculating the PID. Defaults to 0.
 
 ## License
 This software is licensed under the GNU General Public License v3.

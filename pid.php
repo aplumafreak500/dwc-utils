@@ -23,8 +23,7 @@ else {
 	}
 }
 function CalcPID($in_fc) {
-	$return=gmp_strval(gmp_and($in_fc,"0xffffffff"),10);
-	return $return;
+	return gmp_strval(gmp_and($in_fc,"0xffffffff"),10);
 	
 }
 echo CalcPID($fc);
