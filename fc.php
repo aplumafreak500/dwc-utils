@@ -4,7 +4,7 @@ include_once("crcphp/crc8.php");
 
 header("Content-Type: text/plain");
 if (!isset($_GET["pid"])) {
-	$pid=gmp_init("0",10);
+	$pid=gmp_init("1",10);
 }
 else {
 	$pid=gmp_init($_GET["pid"], 10);
@@ -60,12 +60,6 @@ function CalcDS_FC($profile_id, $game_id) {
 	$crc8 = new Crc8();
     $csum = $crc8->ComputeCrc($CRC_8_,sbin2ar(pack("V",gmp_intval($profile_id)).strrev($game_id),true));
     $return=gmp_or($profile_id, gmp_shiftl(($csum->Crc & 0xfe), 31));
-	$fc=gmp_strval($return,10);
-	return $fc;
-}
-function CalcSHA1_FC($profile_id, $game_id) {
-    $csum = sha1(pack("V",gmp_intval($profile_id)).strrev($game_id),true);
-    $return=gmp_or($profile_id, gmp_shiftl((ord($csum) & 0xfe), 31));
 	$fc=gmp_strval($return,10);
 	return $fc;
 }

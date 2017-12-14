@@ -12,7 +12,7 @@ else {
 	}
 }
 if (!isset($_GET["fc"])) {
-	$fc=0;
+	$fc=gmp_init("021474836481",10);
 }
 else {
 	if ($rev==1) {
