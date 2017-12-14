@@ -7,10 +7,10 @@ else {
 	$game=$_GET["game"];
 }
 if (!isset($_GET["domain"])) {
-	$game="nintendowifi.net";
+	$domain="nintendowifi.net";
 }
 else {
-	$game=$_GET["domain"];
+	$domain=$_GET["domain"];
 }
 function CalcMS($game) {
 	$svr=gmp_init(0,10);

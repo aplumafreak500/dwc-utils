@@ -1,0 +1,2 @@
+[14-Dec-2017 04:21:29 UTC] PHP Warning:  gmp_init(): Unable to convert variable to GMP - string is not an integer in /host-rootfs/storage/sdcard1/Android/data/com.gnuroot.debian/files/git/dwc-utils/pid.php on line 22
+[14-Dec-2017 04:21:53 UTC] PHP Notice:  Undefined variable: domain in /host-rootfs/storage/sdcard1/Android/data/com.gnuroot.debian/files/git/dwc-utils/ms.php on line 24
