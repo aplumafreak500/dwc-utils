@@ -37,4 +37,4 @@ You should have received a copy of the GNU General Public License along with thi
 
 Contains code by Anton Isakov (<http://crccalc.com>) licensed under the MIT License.
 
-Copyright © 2017 Alex Pensinger (APLumaFreak500). All rights reserved.
+Copyright © 2018 Alex Pensinger (APLumaFreak500). All rights reserved.
