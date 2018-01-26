@@ -1,2 +1,0 @@
-[26-Jan-2018 20:52:03 UTC] PHP Parse error:  syntax error, unexpected 'CRC16_FC' (T_STRING) in /host-rootfs/storage/sdcard1/Android/data/com.gnuroot.debian/files/git/dwc-utils/fc.php on line 130
-[26-Jan-2018 20:53:26 UTC] php_errors.log
