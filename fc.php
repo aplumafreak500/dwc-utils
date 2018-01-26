@@ -8,7 +8,13 @@
     You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-include_once("crcphp/crc8.php");
+// Workaround to prevent import errors. Darn you, relative paths!
+
+chdir("crcphp");
+
+include_once("crc8.php");
+include_once("crc16.php");
+include_once("crc32.php");
 
 header("Content-Type: text/plain");
 if (!isset($_GET["pid"])) {
@@ -71,6 +77,22 @@ function CalcDS_FC($profile_id, $game_id) {
 	$fc=gmp_strval($return,10);
 	return $fc;
 }
+function CalcCRC16_FC($profile_id, $game_id) {
+	global $CRC_16_;
+	$crc16 = new Crc16();
+    $csum = $crc16->ComputeCrc($CRC_16_,sbin2ar(pack("V",gmp_intval($profile_id)).strrev($game_id),true));
+    $return=gmp_or($profile_id, gmp_shiftl(($csum->Crc & 0xfe), 31));
+	$fc=gmp_strval($return,10);
+	return $fc;
+}
+function CalcCRC32_FC($profile_id, $game_id) {
+	global $CRC_32_;
+	$crc32 = new Crc32();
+    $csum = $crc32->ComputeCrc($CRC_32_,sbin2ar(pack("V",gmp_intval($profile_id)).strrev($game_id),true));
+    $return=gmp_or($profile_id, gmp_shiftl(($csum->Crc & 0xfe), 31));
+	$fc=gmp_strval($return,10);
+	return $fc;
+}
 function CalcEtc_FC($profile_id, $game_id, $method) {
     $csum = hash($method, pack("V",gmp_intval($profile_id)).strrev($game_id),true);
     $return=gmp_or($profile_id, gmp_shiftl((ord($csum) & 0xfe), 31));
@@ -98,6 +120,22 @@ else if ($m=="ds" or $m=="crc8"){
 	}
 	else {
 		echo str_pad(CalcDS_FC($pid,$gid),12,"0",STR_PAD_LEFT);
+	}
+}
+else if ($m=="crc16"){
+	if ($rev==1) {
+		echo strrev(str_pad(CalcCRC16_FC($pid,$gid),12,"0",STR_PAD_LEFT));
+	}
+	else {
+		echo str_pad(CalcCRC16_FC($pid,$gid),12,"0",STR_PAD_LEFT);
+	}
+}
+else if ($m=="crc32"){
+	if ($rev==1) {
+		echo strrev(str_pad(CalcCRC32_FC($pid,$gid),12,"0",STR_PAD_LEFT));
+	}
+	else {
+		echo str_pad(CalcCRC32_FC($pid,$gid),12,"0",STR_PAD_LEFT);
 	}
 }
 else {

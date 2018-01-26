@@ -2,7 +2,32 @@
 
 A set of PHP utilities to easily calculate Nintendo Wi-Fi Connection/Wiimmfi/AltWFC friend codes and profile IDs, for regional conversion, testing purposes, or simply to play around with.
 
-**Note:** Requires the gmp module, to allow for 32-bit OS support.
+## Installation
+
+If you don't have a PHP-enabled HTTP server, install Apahce and PHP. The gmp module is required, however.
+
+Replace Apache with any PHP-compatible Web server (like Nginx) if desired.
+
+The gmp module comes with PHP on Windows, but you may need to enable it in your php.ini.
+
+For Debian/Ubuntu:
+
+```sh
+sudo apt-get install php5 apache2 php5-gmp
+```
+
+Clone the repository into your server root:
+
+```sh
+cd /var/www/html
+git clone --recrusive https://github.com/aplumafreak500/dwc-utils
+```
+And you're set.
+
+```sh
+wget -O fc.txt "http://127.0.0.1/dwc-utils/fc.php?gid=RMCJ&pid=12345&m=wii"
+cat fc.txt
+```
 
 ## GET Parameters
 
@@ -35,6 +60,6 @@ This program is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-Contains code by Anton Isakov (<http://crccalc.com>) licensed under the MIT License.
+Uses code by Anton Isakov (<http://crccalc.com>) licensed under the MIT License.
 
-Copyright © 2018 Alex Pensinger (APLumaFreak500). All rights reserved.
+Copyright Â© 2018 Alex Pensinger (APLumaFreak500). All rights reserved.

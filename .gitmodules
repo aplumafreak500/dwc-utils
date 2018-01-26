@@ -1,0 +1,3 @@
+[submodule "crcphp"]
+	path = crcphp
+	url = https://github.com/meetanthony/crcphp
